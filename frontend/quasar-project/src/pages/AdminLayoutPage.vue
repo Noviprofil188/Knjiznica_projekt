@@ -10,12 +10,11 @@
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
-
-        <q-toolbar-title>
-          Knjiznica projekt
+        <q-toolbar-title class="text-h2 text-weight-bold">
+          {{ title }}
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div>{{ $q.lang.isoName }}</div>
       </q-toolbar>
     </q-header>
 
@@ -23,6 +22,7 @@
       v-model="leftDrawerOpen"
       show-if-above
       bordered
+      class="bg-dark text-white text-h5"
     >
       <q-list>
         <q-item-label
@@ -46,56 +46,54 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import EssentialLink from 'components/EssentialLink.vue'
 
 defineOptions({
-  name: 'MainLayout'
+  name: 'AdminLayout'
+})
+
+let title = computed(() => {
+  return "Knjižnica (admin)"
 })
 
 const linksList = [
   {
-    title: 'Login',
-    caption: 'Stranica za log in',
-    icon: 'login',
-    link: '#/login'
-  },
-  {
-    title: 'Lokacija',
-    caption: 'Lokacija',
-    icon: 'location_on',
-    link: '#/lokacija'
-  },
-  {
-    title: 'Mapa',
-    caption: 'Mapa knjiga',
-    icon: 'map',
-    link: '#/mapa'
-  },
-  {
-    title: 'Onama',
-    caption: 'O nama',
-    icon: 'diversity_3',
-    link: '#/o_nama'
+    title: 'Početna',
+    caption: 'Početna stranica',
+    icon: 'home',
+    link: '#/admin'
   },
   {
     title: 'Popis knjiga',
     caption: 'Popis svih knjiga',
-    icon: 'book',
-    link: '#/popis_knjiga'
+    icon: 'local_library',
+    link: '#/admin/popis_knjiga'
   },
   {
-    title: 'Registracija',
-    caption: 'Registracija',
-    icon: 'person',
-    link: '#/registracija'
+    title: 'Pretraživanje',
+    caption: 'Traži knjigu',
+    icon: 'local_library',
+    link: '#/admin/pretrazivanje'
   },
   {
-    title: 'Traži knjigu',
-    caption: 'Pretraži knjigu',
-    icon: 'search',
-    link: '#/Trazi_Knjigu'
-  }
+    title: 'Popis korisnika',
+    caption: 'Popis korisnika',
+    icon: 'local_library',
+    link: '#/admin/popis_korisnika'
+  },
+  {
+    title: 'Unos knjiga',
+    caption: 'Unos nove knjige',
+    icon: 'local_library',
+    link: '#/admin/unos_knjiga'
+  },
+  {
+    title: 'Logout',
+    caption: 'Logout',
+    icon: 'local_library',
+    link: '#/admin/logout'
+  },
 ]
 
 const leftDrawerOpen = ref(false)
@@ -103,4 +101,5 @@ const leftDrawerOpen = ref(false)
 function toggleLeftDrawer () {
   leftDrawerOpen.value = !leftDrawerOpen.value
 }
+
 </script>
