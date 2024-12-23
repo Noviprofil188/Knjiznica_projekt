@@ -8,9 +8,11 @@ const routes = [
       { path: '/pretrazivanje', component: () => import('pages/TraziKnjiguPage.vue') },
       { path: '/o_nama', component: () => import('pages/ONamaPage.vue') },
       { path: '/lokacija', component: () => import('pages/LokacijaPage.vue') },
-      { path: '/lokacija2', component: () => import('pages/MapaPage.vue') },
+      { path: '/mapa', component: () => import('pages/MapaPage.vue') },
       { path: '/login', component: () => import('pages/LoginPage.vue') },
+      {path: "/popis_knjiga_baza",component: () => import("pages/PopisKnjigaBazaPage.vue") },
       { path: '/registracija', component: () => import('pages/RegistracijaPage.vue') },
+      { path: '/rezervirane_knjige', component: () => import('pages/RezerviraneKnjigePage.vue') },
     ]
   },
   {

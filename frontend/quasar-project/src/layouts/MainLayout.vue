@@ -55,6 +55,18 @@ defineOptions({
 
 const linksList = [
   {
+    title: "Početna",
+    caption: "Početna stranica",
+    icon: "home",
+    link: "#/",
+  },
+  {
+    title: 'Popis knjiga',
+    caption: 'Popis svih knjiga',
+    icon: 'book',
+    link: '#/popis_knjiga'
+  },
+  {
     title: 'Login',
     caption: 'Stranica za log in',
     icon: 'login',
@@ -77,12 +89,6 @@ const linksList = [
     caption: 'O nama',
     icon: 'diversity_3',
     link: '#/o_nama'
-  },
-  {
-    title: 'Popis knjiga',
-    caption: 'Popis svih knjiga',
-    icon: 'book',
-    link: '#/popis_knjiga'
   },
   {
     title: 'Registracija',

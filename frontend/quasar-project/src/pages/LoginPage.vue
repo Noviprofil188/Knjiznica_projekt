@@ -1,30 +1,39 @@
 <template>
   <q-page padding>
-    <h1 class="text-h4 text-bold text-center">Prijava</h1>
-    <q-form class="q-gutter-md" @submit="handleLogin">
-      <q-input filled v-model="credentials.username" label="Korisničko ime" />
-      <q-input filled v-model="credentials.password" label="Lozinka" type="password" />
-      <q-btn type="submit" color="primary" label="Potvrdi" />
-    </q-form>
+    <h1>Login</h1>
+    <p>Unesite svoje korisničke podatke za prijavu.</p>
+    
+    <q-input v-model="username" label="Korisničko ime" />
+    <q-input v-model="password" label="Lozinka" type="password" />
+    <q-btn label="Potvrdi" color="primary" @click="loginUser" />
   </q-page>
 </template>
 
 <script>
-import { ref } from 'vue';
-
 export default {
-  setup() {
-    const credentials = ref({
+  data() {
+    return {
       username: '',
-      password: '',
-    });
-
-    const handleLogin = () => {
-      console.log('Credentials:', credentials.value);
-      alert('Prijava uspješna!');
+      password: ''
     };
-
-    return { credentials, handleLogin };
   },
+  methods: {
+    loginUser() {
+      // Logika za login, primjer provjere
+      if (this.username && this.password) {
+        // Ako su podaci ispravni, obriši polja i preusmjeri korisnika
+        console.log("Podaci za prijavu:", this.username, this.password);
+        
+        // Očisti input polja
+        this.username = '';
+        this.password = '';
+
+        // Preusmjeri korisnika na stranicu Popis Knjiga
+        this.$router.push({ name: 'PopisKnjigaPage.vue' });  // Pretpostavka je da ruta ima naziv 'PopisKnjigaPage.vue'
+      } else {
+        alert("Molimo unesite korisničko ime i lozinku.");
+      }
+    }
+  }
 };
 </script>
